@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Account\AuthController;
+use App\Http\Controllers\Account\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::group([
     'prefix' => 'auth',
 
 ], function ($router) {
+
+    Route::post('register', [RegisterController::class, 'register']);
 
     Route::post('login', [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout']);

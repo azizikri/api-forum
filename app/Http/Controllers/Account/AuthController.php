@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Account\AuthRequest;
 
 class AuthController extends Controller
 {
@@ -25,7 +26,10 @@ class AuthController extends Controller
     public function login(AuthRequest $request)
     {
         $data = $request->validated();
-        $credentials = [data['email'], data['password']];
+        $credentials = [
+            'email' => $data['email'],
+            'password' => $data['password']
+        ];
 
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
