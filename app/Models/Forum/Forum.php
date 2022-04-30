@@ -3,13 +3,14 @@
 namespace App\Models\Forum;
 
 use App\Models\User;
+use App\Concerns\HasSlug;
 use App\Models\Forum\ForumComment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Forum extends Model
 {
-    use HasFactory;
+    use HasFactory, HasSlug;
 
     protected $guarded = ['id'];
 
