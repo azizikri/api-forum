@@ -20,7 +20,7 @@ Route::group([
 
     'middleware' => 'api',
 
-], function () {
+], function ($router) {
 
     Route::prefix('auth')->group(function () {
         Route::post('register', [RegisterController::class, 'register']);
