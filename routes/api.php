@@ -20,7 +20,7 @@ Route::group([
 
     'middleware' => 'api',
 
-], function ($router) {
+], function () {
 
     Route::prefix('auth')->group(function () {
         Route::post('register', [RegisterController::class, 'register']);
@@ -30,7 +30,7 @@ Route::group([
         Route::post('refresh', [AuthController::class, 'refresh']);
         Route::post('me', [AuthController::class, 'me']);
     });
-    
+
     Route::apiResources([
         'forums' => ForumController::class,
     ]);
